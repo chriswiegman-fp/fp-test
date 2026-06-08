@@ -7,7 +7,8 @@
 
 <body>
     <h1>Fingerprint Test</h1>
-    <p id="result"></p>
+    <p><strong>Visitor ID:</strong> <span id="visitor_id"></span></p>
+    <p><strong>Event ID:</strong> <span id="event_id"></span></p>
 
     <script>
         // Initialize the agent at application startup.
@@ -17,11 +18,12 @@
         // Get the visitor and event identifier when you need it.
         fpPromise
             .then(fp => fp.get())
-            .then(result => processResult(result.event_id, result.visitor_id))
+            .then(result => processResult(result))
 
-        function processResult(event_id, visitor_id) {
-            console.log(event_id, visitor_id)
-            document.getElementById('result').textContent = "Event ID: " + event_id + ", Visitor ID: " + visitor_id;
+        function processResult(result) {
+            console.log(result)
+            document.getElementById('visitor_id').textContent = result.visitor_id;
+            document.getElementById('event_id').textContent = result.event_id;
         }
     </script>
 </body>
