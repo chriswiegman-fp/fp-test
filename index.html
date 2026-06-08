@@ -7,6 +7,7 @@
 
 <body>
     <h1>Fingerprint Test</h1>
+    <p id="result"></p>
 
     <script>
         // Initialize the agent at application startup.
@@ -20,6 +21,7 @@
 
         function processResult(event_id, visitor_id) {
             console.log(event_id, visitor_id)
+            document.getElementById('result').textContent = "Event ID: " + event_id + ", Visitor ID: " + visitor_id;
         }
     </script>
 </body>
