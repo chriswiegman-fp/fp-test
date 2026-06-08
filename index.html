@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test and experimentation with Fingerprint.js</title>
+</head>
+
+<body>
+    <h1>Fingerprint Test</h1>
+
+    <script>
+        // Initialize the agent at application startup.
+        const fpPromise = import('https://fpjscdn.net/v4/O6GrFJdnOZM0KvHjUOGn')
+            .then(Fingerprint => Fingerprint.start())
+
+        // Get the visitor and event identifier when you need it.
+        fpPromise
+            .then(fp => fp.get())
+            .then(result => console.log(result.event_id, result.visitor_id))
+    </script>
+</body>
+
+</html>
